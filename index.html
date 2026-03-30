@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Explorers: HTML & CSS Fundamentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .curriculum-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+        .page-container {
+            display: none;
+        }
+        .page-active {
+            display: grid;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-blue-800 to-blue-600 text-white py-16 px-4 shadow-xl mb-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 italic tracking-tight">Web Explorers</h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">HTML & CSS Fundamentals: A Systematic 16-Module Curriculum</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        
+        <!-- Pagination Controls -->
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+            <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                <span class="w-2 h-8 bg-blue-600 rounded-full mr-3"></span>
+                Curriculum Modules
+            </h2>
+            <div class="flex items-center gap-3 bg-white p-2 rounded-2xl shadow-sm border border-gray-100">
+                <button id="prevBtn" onclick="changePage(1)" class="p-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                
+                <span class="font-bold text-gray-500 px-2 select-none text-sm uppercase tracking-widest">
+                    Page <span id="pageNum" class="text-blue-600 text-lg">1</span> / 2
+                </span>
+
+                <button id="nextBtn" onclick="changePage(2)" class="p-2 rounded-xl hover:bg-blue-600 hover:text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Curriculum Grid Container -->
+        <div id="curriculum-wrapper" class="mb-16">
+            
+            <!-- Page 1 (Modules 1-8) -->
+            <div id="page-1" class="page-container page-active grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- href="..." နေရာတွင် သင်သွားလိုသော link ကို ထည့်ပါ -->
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 01</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Introduction to Web</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Understanding how websites work and the basics of browsers.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 02</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">HTML Basics</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Building the skeleton (structure) of a webpage using HTML tags.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 03</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Images & Link</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Mastering Images, customize width and height, Link and related attribute</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 04</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Box Model</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Managing space, margins, padding, and element dimensions.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 05</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Flexbox Layout</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Arranging elements in flexible rows or columns systematically.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 06</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">CSS Grid</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Creating complex website layouts using the grid system.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 07</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Responsive Web</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Designing sites that look great on phones, tablets, and laptops.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 08</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Typography</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Making web content readable and attractive with font management.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Page 2 (Modules 9-16) -->
+            <div id="page-2" class="page-container grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 09</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Forms & Validation</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Requesting user data and validating inputs effectively.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 10</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">CSS Animations</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Adding life and motion to your website with motion design.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 11</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Web Accessibility</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Ensuring your site is usable by everyone, including people with disabilities.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 12</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">SEO Basics</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Preparing your site to be easily found by search engines like Google.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 13</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Git & GitHub</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Using Git for version control and collaborating with teams on GitHub.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 14</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">SASS/SCSS</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Speeding up CSS writing with modern preprocessor features.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 15</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Performance</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Optimization techniques to make your website lightweight and fast.</p>
+                    </div>
+                </a>
+                <a href="#" class="curriculum-card bg-white p-6 rounded-2xl shadow-sm">
+                    <div>
+                        <span class="text-xs font-black text-blue-600 uppercase">Module 16</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Final Portfolio</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Applying all learned skills to build a professional personal portfolio.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-12 text-center">
+        <p class="text-gray-400 text-sm font-medium">© 2025 Web Explorers Learning Path. Designed for Modern Web Developers.</p>
+    </footer>
+
+    <script>
+        function changePage(pageNum) {
+            const page1 = document.getElementById('page-1');
+            const page2 = document.getElementById('page-2');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageNumDisplay = document.getElementById('pageNum');
+
+            if (pageNum === 1) {
+                page1.classList.add('page-active');
+                page2.classList.remove('page-active');
+                prevBtn.disabled = true;
+                nextBtn.disabled = false;
+                pageNumDisplay.innerText = '1';
+            } else {
+                page1.classList.remove('page-active');
+                page2.classList.add('page-active');
+                prevBtn.disabled = false;
+                nextBtn.disabled = true;
+                pageNumDisplay.innerText = '2';
+            }
+        }
+    </script>
+</body>
+</html>
