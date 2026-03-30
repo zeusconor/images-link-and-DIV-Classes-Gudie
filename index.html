@@ -223,6 +223,25 @@
                 pageNumDisplay.innerText = '2';
             }
         }
+
+         // Disable Right-Click
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Disable Copy/Cut/Paste
+document.addEventListener('copy', event => event.preventDefault());
+document.addEventListener('cut', event => event.preventDefault());
+document.addEventListener('paste', event => event.preventDefault());
+
+// Disable Text Selection
+document.addEventListener('selectstart', event => event.preventDefault());
+
+// Disable Specific Keyboard Shortcuts (Ctrl+C, Ctrl+U, etc.)
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U')) {
+    e.preventDefault();
+  }
+});
+
     </script>
 </body>
 </html>
